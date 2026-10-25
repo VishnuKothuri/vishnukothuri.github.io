@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="css/styles.css">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -68,20 +69,25 @@
       "Python"
     ],
     "sameAs": [
-      "https://www.linkedin.com/in/vishnukothuri",
-      "https://github.com/VishnuKothuri"
+      "https://www.linkedin.com/in/vishnukothuri"
     ]
   }
   </script>
 </head>
 <body>
-<header>
+<div class="progress" aria-hidden="true"><b id="progressBar"></b></div>
+<header class="site-header">
   <div class="wrap">
     <a class="mark" href="#top">vishnu<span>@</span>prod:~$</a>
-    <nav aria-label="Main">
+    <div class="h-tools">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch color theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg></button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+    </div>
+    <nav aria-label="Main" id="mainNav">
       <a href="#about">About</a>
       <a href="#work">What I do</a>
       <a href="#experience">Experience</a>
+      <a href="#certs">Certifications</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -91,18 +97,18 @@
   <section class="hero">
     <div class="wrap">
       <div>
-        <p class="label">Senior DevOps Engineer · Atlanta, GA</p>
+        <div class="hero-id"><img class="avatar" src="assets/avatar.jpg" alt="" width="80" height="80"><p class="label">Senior DevOps Engineer · Atlanta, GA</p></div>
         <h1><span class="ln"><span>Vishnu</span></span><span class="ln"><span>Krishna</span></span><span class="ln"><span>Kothuri</span></span></h1>
         <p class="role">I build the pipelines that take code from <strong>commit to production</strong> on the Microsoft stack, and the <strong>AI agents</strong> that take routine work off people's plates.</p>
         <div class="cta">
           <a class="btn primary" href="#contact">Get in touch</a>
-          <a class="btn" href="https://www.linkedin.com/in/vishnukothuri">LinkedIn ↗</a>
+          <a class="btn" href="https://www.linkedin.com/in/vishnukothuri" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
       </div>
       <div class="run" aria-label="Career shown as a pipeline run">
         <div class="run-head"><span class="run-title"><b>career.yml</b><small>branch: career/v7 · triggered Aug 2019</small></span><span class="badge"><i aria-hidden="true"></i>Running</span></div>
         <ol>
-          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-label="Completed" role="img"><circle cx="12" cy="12" r="10"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg><span class="stg">build · Qualitest<em>DevOps Engineer</em></span><span>4y</span></li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-label="Completed" role="img"><circle cx="12" cy="12" r="10"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg><span class="stg">build · QualityAI<em>DevOps Engineer</em></span><span>4y</span></li>
           <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-label="Completed" role="img"><circle cx="12" cy="12" r="10"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg><span class="stg">test · Central Michigan U.<em>System Engineer · M.S. CS</em></span><span>1y 3m</span></li>
           <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-label="Completed" role="img"><circle cx="12" cy="12" r="10"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg><span class="stg">package · Ancestry<em>Software Engineer</em></span><span>8m</span></li>
           <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-label="Completed" role="img"><circle cx="12" cy="12" r="10"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg><span class="stg">release · Cox<em>Senior DevOps Engineer</em></span><span>1y 2m</span></li>
@@ -138,7 +144,7 @@
     </div>
   </section>
 
-  <section class="block" id="work">
+  <section class="block band" id="work">
     <div class="wrap">
       <div class="sec-head"><h2>What I do</h2><button class="toggle-all" id="toggleAll" type="button" aria-pressed="false">Expand all</button></div>
       <div class="areas">
@@ -226,7 +232,7 @@
         <li class="stage"><h3>Senior DevOps Engineer</h3><span class="co">Cox Communications</span><span class="meta">Atlanta, Georgia</span><span class="when">Jul 2025 – Aug 2026</span></li>
         <li class="stage"><h3>Software Engineer</h3><span class="co">Ancestry</span><span class="meta">Utah</span><span class="when">Dec 2024 – Jul 2025</span></li>
         <li class="stage"><h3>System Engineer</h3><span class="co">Central Michigan University</span><span class="meta">Mount Pleasant, Michigan</span><span class="when">Sep 2023 – Nov 2024</span></li>
-        <li class="stage"><h3>DevOps Engineer</h3><span class="co">Qualitest</span><span class="meta">Hyderabad, India</span><span class="when">Aug 2019 – Jul 2023</span></li>
+        <li class="stage"><h3>DevOps Engineer</h3><span class="co">QualityAI</span><span class="meta">Hyderabad, India</span><span class="when">Aug 2019 – Jul 2023</span></li>
       </ol>
     </div>
   </section>
@@ -241,14 +247,14 @@
     </div>
   </section>
 
-  <section class="block" id="certs">
+  <section class="block band" id="certs">
     <div class="wrap">
       <div class="sec-head"><h2>Certifications</h2></div>
       <div class="certs">
-        <div class="cert"><div class="cert-top"><span class="label">Amazon Web Services</span><span class="st on">Active</span></div><strong>AWS Certified Solutions Architect – Associate</strong><span class="dates">Issued Jan 2025 · Expires Jan 2028</span><span class="cid">ID e552c572c34348ef90b8b7d101e54855</span><a class="verify" href="https://www.credly.com/badges/22c8c0d5-47d7-46fd-81a7-9b046c6620ed/public_url">Verify on Credly ↗</a></div>
-        <div class="cert"><div class="cert-top"><span class="label">Aviatrix</span><span class="st on">Active</span></div><strong>Multicloud Network Associate</strong><span class="dates">Issued Feb 2024 · Expires Feb 2028</span><span class="cid">ID 2025-23492</span><a class="verify" href="https://www.credly.com/badges/27cd3a73-63f0-4ceb-a4c9-595061b19363/public_url">Verify on Credly ↗</a></div>
-        <div class="cert"><div class="cert-top"><span class="label">The Linux Foundation</span><span class="st off">Expired</span></div><strong>CKAD: Certified Kubernetes Application Developer</strong><span class="dates">Issued Jan 2021 · Expired Dec 2024</span><span class="cid">ID LF-6d6w9jubdh</span><a class="verify" href="https://www.credly.com/badges/189e9dc8-95a3-4b4f-8931-de633e4121b8">Verify on Credly ↗</a></div>
-        <div class="cert"><div class="cert-top"><span class="label">HashiCorp</span><span class="st off">Expired</span></div><strong>HashiCorp Certified: Terraform Associate</strong><span class="dates">Issued Aug 2021 · Expired Aug 2023</span><span class="cid">ID 5d1cc756-5590-4798-8da2-d4164316ab7c</span><a class="verify" href="https://www.credly.com/badges/5d1cc756-5590-4798-8da2-d4164316ab7c">Verify on Credly ↗</a></div>
+        <div class="cert has-badge"><img class="badge-img" src="https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png" alt="AWS Certified Solutions Architect – Associate badge" width="84" height="84" loading="lazy"><div class="cert-body"><div class="cert-top"><span class="label">Amazon Web Services</span><span class="st on">Active</span></div><strong>AWS Certified Solutions Architect – Associate</strong><span class="dates">Issued Jan 2025 · Expires Jan 2028</span><span class="cid">ID e552c572c34348ef90b8b7d101e54855</span><a class="verify" href="https://www.credly.com/badges/22c8c0d5-47d7-46fd-81a7-9b046c6620ed/public_url" target="_blank" rel="noopener">Verify on Credly ↗</a></div></div>
+        <div class="cert has-badge"><img class="badge-img" src="https://images.credly.com/size/340x340/images/e3c001fd-161d-433a-a7a4-049556d6112d/blob" alt="Aviatrix Multicloud Network Associate badge" width="84" height="84" loading="lazy"><div class="cert-body"><div class="cert-top"><span class="label">Aviatrix</span><span class="st on">Active</span></div><strong>Multicloud Network Associate</strong><span class="dates">Issued Feb 2024 · Expires Feb 2028</span><span class="cid">ID 2025-23492</span><a class="verify" href="https://www.credly.com/badges/27cd3a73-63f0-4ceb-a4c9-595061b19363/public_url" target="_blank" rel="noopener">Verify on Credly ↗</a></div></div>
+        <div class="cert has-badge"><img class="badge-img" src="https://images.credly.com/size/340x340/images/cc8adc83-1dc6-4d57-8e20-22171247e052/blob" alt="CKAD: Certified Kubernetes Application Developer badge" width="84" height="84" loading="lazy"><div class="cert-body"><div class="cert-top"><span class="label">The Linux Foundation</span><span class="st off">Expired</span></div><strong>CKAD: Certified Kubernetes Application Developer</strong><span class="dates">Issued Jan 2021 · Expired Dec 2024</span><span class="cid">ID LF-6d6w9jubdh</span><a class="verify" href="https://www.credly.com/badges/189e9dc8-95a3-4b4f-8931-de633e4121b8" target="_blank" rel="noopener">Verify on Credly ↗</a></div></div>
+        <div class="cert has-badge"><img class="badge-img" src="https://images.credly.com/size/340x340/images/cd038261-9d1c-4792-bc62-3a3b5bda175c/blob" alt="HashiCorp Certified: Terraform Associate badge" width="84" height="84" loading="lazy"><div class="cert-body"><div class="cert-top"><span class="label">HashiCorp</span><span class="st off">Expired</span></div><strong>HashiCorp Certified: Terraform Associate</strong><span class="dates">Issued Aug 2021 · Expired Aug 2023</span><span class="cid">ID 5d1cc756-5590-4798-8da2-d4164316ab7c</span><a class="verify" href="https://www.credly.com/badges/5d1cc756-5590-4798-8da2-d4164316ab7c" target="_blank" rel="noopener">Verify on Credly ↗</a></div></div>
       </div>
     </div>
   </section>
@@ -260,13 +266,14 @@
       <div class="email-row">
         <span class="email" id="email">vishnukothuri5@gmail.com</span>
         <button class="btn primary" id="copyBtn" type="button">Copy email</button>
-        <a class="btn" href="https://www.linkedin.com/in/vishnukothuri">LinkedIn ↗</a>
+        <a class="btn" href="https://www.linkedin.com/in/vishnukothuri" target="_blank" rel="noopener">LinkedIn ↗</a>
         <span class="copied" id="copied" aria-live="polite"></span>
       </div>
-      <footer><span>© 2026 Vishnu Krishna Kothuri</span><span>Atlanta Metropolitan Area</span></footer>
+      <footer><span>© 2026 Vishnu Krishna Kothuri · Atlanta, Georgia</span><span class="share-wrap"><span class="share-msg" id="shareMsg" aria-live="polite"></span><button class="share-btn" id="shareBtn" type="button" aria-label="Share this portfolio" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg></button></span></footer>
     </div>
   </section>
 </main>
+<a class="to-top" href="#top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a>
 
 <script src="js/main.js" defer></script>
 </body>

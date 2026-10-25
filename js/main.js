@@ -80,3 +80,61 @@ document.getElementById('copyBtn').addEventListener('click',function(){
     update();
   }
 })();
+
+// ---- v2: header, progress, active nav, theme, menu, back-to-top ----
+(function(){
+  var root=document.documentElement, header=document.querySelector('.site-header');
+  var bar=document.getElementById('progressBar'), toTop=document.getElementById('toTop');
+  function onScroll(){
+    var max=root.scrollHeight-innerHeight, y=scrollY;
+    if(bar) bar.style.transform='scaleX('+(max>0?Math.min(1,y/max):0)+')';
+    if(header) header.classList.toggle('scrolled',y>8);
+    if(toTop) toTop.classList.toggle('show',y>900);
+  }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // Active section in nav
+  var links=[].slice.call(document.querySelectorAll('#mainNav a'));
+  var map={}; links.forEach(function(a){ map[a.getAttribute('href').slice(1)]=a; });
+  if('IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){ links.forEach(function(a){a.removeAttribute('aria-current')}); var a=map[e.target.id]; if(a) a.setAttribute('aria-current','true'); }
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(map).forEach(function(id){ var s=document.getElementById(id); if(s) so.observe(s); });
+  }
+
+  // Mobile menu
+  var mb=document.getElementById('menuBtn'), nav=document.getElementById('mainNav');
+  if(mb&&nav){
+    mb.addEventListener('click',function(){ var o=nav.classList.toggle('open'); mb.setAttribute('aria-expanded',o); mb.setAttribute('aria-label',o?'Close menu':'Open menu'); });
+    links.forEach(function(a){ a.addEventListener('click',function(){ nav.classList.remove('open'); mb.setAttribute('aria-expanded','false'); }); });
+  }
+
+  // Theme toggle (remembered per visitor)
+  var tb=document.getElementById('themeBtn');
+  if(tb) tb.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark'; root.setAttribute('data-theme',next);
+    try{ localStorage.setItem('theme',next); }catch(e){}
+  });
+})();
+
+// Share button: native share sheet on phones, copy link elsewhere
+(function(){
+  var btn=document.getElementById('shareBtn'), msg=document.getElementById('shareMsg');
+  if(!btn) return;
+  var url='https://vishnukothuri.github.io/';
+  var data={url:url};
+  function say(t){ msg.textContent=t; clearTimeout(say.t); say.t=setTimeout(function(){msg.textContent='';},3000); }
+  function copy(){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){say('Link copied');},function(){say(url);});
+    } else { say(url); }
+  }
+  btn.addEventListener('click',function(){
+    if(navigator.share){ navigator.share(data).catch(function(e){ if(e && e.name!=='AbortError') copy(); }); }
+    else copy();
+  });
+})();
